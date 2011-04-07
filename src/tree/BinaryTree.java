@@ -58,15 +58,24 @@ public class BinaryTree {
 	
 	
 	/*search the tree for an element*/
-	public boolean searchForElement(int dataIn){
-		return searchForElement(root, dataIn);	
+	public boolean lookupElement(int dataIn){
+		return lookupElement(root, dataIn);	
 	}
 	
-	private boolean searchForElement(Node nodeIn,int dataIn){
-		boolean status = false;
-		
-		
-		return status;
+	private boolean lookupElement(Node nodeIn,int dataIn){
+		if(nodeIn == null){
+			return false;
+		}else{
+			if(nodeIn.getData() == dataIn){
+				return true;
+			}else{
+				if(dataIn < nodeIn.getData()){
+					return lookupElement(nodeIn.getLeft(),dataIn);
+				}else{
+					return lookupElement(nodeIn.getRight(),dataIn);
+				}
+			}
+		}	
 	}
 	
 	

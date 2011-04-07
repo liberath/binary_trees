@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.Random;
+
 import tree.BinaryTree;
 
 public class Driver {
@@ -9,16 +11,14 @@ public class Driver {
 	 */
 	public static void main(String[] args) {
 		BinaryTree t = new BinaryTree();
+		Random g = new Random();
 		
-		t.printTree();		
-		
-		t.insert(2);
-		t.insert(100);
-		t.insert(58);	
-		
-		
-		t.printTree();
+		for(int i=0; i<1000000;i++){
+			t.insert(g.nextInt(10000000)+1);
+		}
 
+		System.out.println(t.lookupElement(9837));
+		//t.printTree();
 	}
 
 }
